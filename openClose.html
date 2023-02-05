@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Open Close tag</title>
+</head>
+<body>
+    <div class="container">
+        <div class="menu-btn">
+            <span class="bar bar1"></span>
+            <span class="bar bar2"></span>
+            <span class="bar bar3"></span>
+        </div>
+    </div>
+
+    <style>
+        *,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	min-height: 100vh;
+	display: grid;
+	place-content: center;
+	font-family: "Poppins", sans-serif;
+	background-color: #111;
+	color: #fff;
+}
+.container {
+	max-width: 128rem;
+	margin: auto;
+}
+.menu-btn {
+	cursor: pointer;
+	transition: all 0.5s ease-in-out;
+}
+
+.bar {
+	display: block;
+	width: 4rem;
+	height: 0.5rem;
+	border-radius: 0.5rem;
+	margin: 0.75rem 0;
+	background-color: #fff;
+	transition: all 0.25s ease-in-out;
+}
+
+.change .bar1 {
+	transform: rotate(-45deg) translate(-9px, 8px);
+}
+
+.change .bar2 {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.change .bar3 {
+	transform: rotate(45deg) translate(-9px, -8px);
+}
+
+    </style>
+
+<script>
+	
+const menuToggle = document.querySelector(".menu-btn");
+
+menuToggle.addEventListener("click", () => {
+	menuToggle.classList.toggle("change");
+});
+
+</script>
+
+</body>
+</html>
